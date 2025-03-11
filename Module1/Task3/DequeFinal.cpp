@@ -6,8 +6,8 @@ class Deque {
     public:
         void push_back(const int element);
         void push_front(const int element);
-        // int pop_back();
-        // int pop_front();
+        int pop_back();
+        int pop_front();
         void print_deque();
      
         Deque() : nsize{1}, head{-1}, tail{-1} {
@@ -79,7 +79,7 @@ void Deque::add_element_front(const int element) {
     if (is_empty()) {
         head = tail = 0;
     } else {
-        head = (head > 0) ? head - 1 : nsize - 1;
+        head = (head > 0) ? (head - 1) : (nsize - 1);
     }
     array[head] = element;
 }
@@ -92,6 +92,28 @@ void Deque::push_front(const int element) {
 void Deque::push_back(const int element) {
     if (is_full()) allocate_memory();
     add_element_back(element);
+}
+
+int Deque::pop_back() {
+    int tmp = tail;
+    if (is_empty()) return -1;
+    if (head == tail) {
+        head = tail = -1;
+    } else {
+        head = (head + 1) % nsize;
+    }
+    return array[tmp];
+}
+
+int Deque::pop_front() {
+    int tmp = head;
+    if (is_empty()) return -1;
+    if (head == tail) {
+        head = tail = -1;
+    } else {
+        tail = (tail > 0) ? (tail - 1) : (nsize - 1);
+    }
+    return array[tmp];
 }
 
 void Deque::print_deque() {
@@ -120,34 +142,53 @@ void run(std::istream &input, std::ostream &output) {
         if (cmd == 1) {
             dq.push_front(element);
         } else if (cmd == 2) {
-            // if (dq.pop_front() != element) flag = false;
+            if (dq.pop_front() != element) flag = false;
         } else if (cmd == 3) {
             dq.push_back(element);
         } else if (cmd == 4) {
-            // if (dq.pop_back() != element) flag = false;
+            if (dq.pop_back() != element) flag = false;
         } else {
             std::cerr << "Error, this command is not support";
         }
     }
     (flag) ? output << "YES\n" : output << "NO\n";
-    dq.print_deque();
+    // dq.print_deque();
     return;
 }
 
 void test_case() {
-    std::stringstream input, output;
-    input << "5" << std::endl;
-    input << "3 123" << std::endl;
-    input << "3 1234" << std::endl;
-    input << "3 15" << std::endl;
-    input << "3 27" << std::endl;
-    input << "3 12345" << std::endl;
-    run(input, output);
-    std::cout << output.str() << std::endl;
+    {
+        std::stringstream input, output;
+        input << "3" << std::endl;
+        input << "1 44" << std::endl;
+        input << "3 50" << std::endl;
+        input << "2 44" << std::endl;
+        std::cout << "Test 1: " << std::endl;
+        run(input, output);
+        std::cout << output.str();
+    }
+    {
+        std::stringstream input, output;
+        input << "2" << std::endl;
+        input << "2 -1" << std::endl;
+        input << "1 10" << std::endl;
+        std::cout << "Test 2: " << std::endl;
+        run(input, output);
+        std::cout << output.str();
+    }
+    {
+        std::stringstream input, output;
+        input << "2" << std::endl;
+        input << "3 44" << std::endl;
+        input << "4 66" << std::endl;
+        std::cout << "Test 3: " << std::endl;
+        run(input, output);
+        std::cout << output.str();
+    }
 }
 
 int main() {
-    test_case();
-    // run(std::cin, std::cout);
+    // test_case();
+    run(std::cin, std::cout);
     return 0;
 }
