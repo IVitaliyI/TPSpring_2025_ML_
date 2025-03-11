@@ -100,7 +100,7 @@ int Deque::pop_back() {
     if (head == tail) {
         head = tail = -1;
     } else {
-        head = (head + 1) % nsize;
+        tail = (tail > 0) ? (tail - 1) : (nsize - 1);
     }
     return array[tmp];
 }
@@ -111,7 +111,7 @@ int Deque::pop_front() {
     if (head == tail) {
         head = tail = -1;
     } else {
-        tail = (tail > 0) ? (tail - 1) : (nsize - 1);
+        head = (head + 1) % nsize;
     }
     return array[tmp];
 }
