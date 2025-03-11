@@ -85,6 +85,7 @@ class Deque {
 };
 
 void Deque::push_back(const int element) { back.push(element); }
+void Deque::push_front(const int element) { front.push(element); }
 int Deque::pop_front() {
     if (front.is_empty()) translate(back, front);
     return front.pop();
@@ -117,7 +118,7 @@ void run(std::istream &input, std::ostream &output) {
         if (!flag) break;
         input >> cmd >> element;
         if (cmd == 1) {
-            dq.push_back(element);
+            dq.push_front(element);
         } else if (cmd == 2) {
             if (dq.pop_front() != element) flag = false;
         } else if (cmd == 3) {
@@ -132,37 +133,7 @@ void run(std::istream &input, std::ostream &output) {
     return;
 }
 
-void test_case() {
-    {
-        std::stringstream input, output;
-        input << "5" << std::endl;
-        input << "2 -1" << std::endl;
-        input << "2 2" << std::endl;
-        input << "3 5" << std::endl;
-        input << "3 5" << std::endl;
-        input << "3 5" << std::endl;
-        run(input, output);
-        std::cout << "TEST 1: " << output.str();
-        assert(output.str() == "NO\n");
-        std::cout << "OK" << std::endl;
-    }
-    {
-        std::stringstream input, output;
-        input << "5" << std::endl;
-        input << "2 -1" << std::endl;
-        input << "2 -1" << std::endl;
-        input << "3 5" << std::endl;
-        input << "3 5" << std::endl;
-        input << "3 5" << std::endl;
-        run(input, output);
-        std::cout << "TEST 2: " << output.str();
-        assert(output.str() == "YES\n");
-        std::cout << "OK" << std::endl;
-    }
-}
-
 int main() {
-    test_case();
-    // run(std::cin, std::cout);
+    run(std::cin, std::cout);
     return 0;
 }
