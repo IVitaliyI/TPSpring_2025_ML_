@@ -3,51 +3,47 @@
 #include <sstream>
 
 class Deque {
-    public:
-        void push_back(const int element);
-        void push_front(const int element);
-        int pop_back();
-        int pop_front();
-        void print_deque();
-     
-        Deque() : nsize{1}, head{-1}, tail{-1} {
-            array = (int*)malloc(sizeof(int) * nsize);
-            if (array == nullptr) {
-                std::cerr << "Erro with memory allocation" << std::endl;
-            }
+   public:
+    void push_back(const int element);
+    void push_front(const int element);
+    int pop_back();
+    int pop_front();
+    void print_deque();
+
+    Deque() : nsize{1}, head{-1}, tail{-1} {
+        array = (int *)malloc(sizeof(int) * nsize);
+        if (array == nullptr) {
+            std::cerr << "Error with memory allocation" << std::endl;
         }
-    
-        Deque(const Deque& other) = delete;
-        Deque &operator=(const Deque &other) = delete;
-    
-        ~Deque() { free(array); }
-    
-        private:
-        //  void translate(Stack &from, Stack &to);
-        int* array;
-        unsigned nsize;
-        int head;
-        int tail;
-        bool is_empty();
-        bool is_full();
-        void allocate_memory();
-        void add_element_front(const int element);
-        void add_element_back(const int element);
-        // void cutoff_memory();
-     };
+    }
 
-bool Deque::is_empty() {
-    return head == -1;
-}
+    Deque(const Deque &other) = delete;
+    Deque &operator=(const Deque &other) = delete;
 
-bool Deque::is_full() {
-    return head == (tail + 1) % nsize;
-}
+    ~Deque() { free(array); }
+
+   private:
+    //  void translate(Stack &from, Stack &to);
+    int *array;
+    unsigned nsize;
+    int head;
+    int tail;
+    bool is_empty();
+    bool is_full();
+    void allocate_memory();
+    void add_element_front(const int element);
+    void add_element_back(const int element);
+    // void cutoff_memory();
+};
+
+bool Deque::is_empty() { return head == -1; }
+
+bool Deque::is_full() { return head == (tail + 1) % nsize; }
 
 void Deque::allocate_memory() {
     int i, k = 0;
     int newsize = nsize * 2;
-    int *new_start = (int*)malloc(sizeof(int) * newsize);
+    int *new_start = (int *)malloc(sizeof(int) * newsize);
     if (new_start == nullptr) {
         std::cerr << "Error in memory allocation" << std::endl;
         abort();
