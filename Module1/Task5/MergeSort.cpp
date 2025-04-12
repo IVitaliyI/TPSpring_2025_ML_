@@ -3,6 +3,8 @@
 #include <iostream>
 #include <sstream>
 
+#define flag true
+
 template <typename T, typename Compare = std::less<T>>
 class MergeSort {
    public:
@@ -52,7 +54,7 @@ struct Comparator {
     bool operator()(const std::pair<unsigned, unsigned> left,
                     const std::pair<unsigned, unsigned> right) const {
         if (left.second == right.second) {
-            return std::less<unsigned>{}(left.first, right.first);
+            return std::less<unsigned>{}(right.first, left.first);
         } else {
             return std::less<unsigned>{}(left.second, right.second);
         }
@@ -88,20 +90,20 @@ void MainTask::read_data(std::istream& input) {
 
 void MainTask::run(std::ostream& output) {
     MergeSort<std::pair<unsigned, unsigned>, Comparator>()(data, size);
-#if flag    
+#if !flag
     for (unsigned i = 0; i < size; i++) {
-        std::cout << data[i].first << " " << data[i].second << std::endl; 
+        std::cout << data[i].first << " " << data[i].second << std::endl;
     }
     std::cout << std::endl;
 #endif
     unsigned count = 0;
-    int last_ad = -2, second_last_ad = -2;
+    int last_ad = -1, second_last_ad = -1;
 
     for (unsigned i = 0; i < size; i++) {
         int a = data[i].first;
         int b = data[i].second;
 
-        if (second_last_ad >= a) continue; 
+        if (second_last_ad >= a) continue;
         if (last_ad >= a) {
             second_last_ad = last_ad;
             last_ad = b;
@@ -247,22 +249,33 @@ void test_case() {
         assert(output.str() == "4\n");
         std::cout << "-> OK" << std::endl;
     }
+    {
+        std::stringstream input, output;
+        input << "5" << std::endl;
+        input << "1 5" << std::endl;
+        input << "2 4" << std::endl;
+        input << "7 9" << std::endl;
+        input << "10 15" << std::endl;
+        input << "100 200" << std::endl;
+        std::cout << "Test 10" << std::endl;
+        MainTask task;
+        task.read_data(input);
+        task.run(output);
+        assert(output.str() == "8\n");
+        std::cout << "-> OK" << std::endl;
+    }
 }
 
 MainTask::~MainTask() { delete[] data; }
 
-
-
 int main() {
-
-#define flag true
 #if flag
     MainTask task;
     task.read_data(std::cin);
     task.run(std::cout);
-#endif 
+#endif
 
-#if !flag   
+#if !flag
     test_case();
 #endif
     return 0;
