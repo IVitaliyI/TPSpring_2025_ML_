@@ -1,12 +1,10 @@
 #include <cassert>
+#include <deque>
 #include <iostream>
 #include <vector>
 
-
 struct Comparator {
-    bool operator()(const int left, const int right) {
-        return left < right;
-    }
+    bool operator()(const int left, const int right) { return left < right; }
 };
 
 struct CBinaryNode {
@@ -18,23 +16,100 @@ struct CBinaryNode {
 
 template <typename T, typename Comparator = std::less<T>>
 class BinaryTree {
-    private:
-        Comparator cmp = Comparator();
-        CBinaryNode *root = nullptr;
-    public:
-        bool insert(const T& object);
+   private:
+    Comparator cmp = Comparator();
+    CBinaryNode *root = nullptr;
+
+   public:
+    void insert(const T &object);
+    void in_order(CBinaryNode *node);
+    void levelBFS(CBinaryNode *node);
+    void visit(CBinaryNode *node);
+
+    CBinaryNode *GetRoot() { return root; }
+
+    void destroy(CBinaryNode *node) {
+        if (node == nullptr) return;
+        destroy(node->left);
+        destroy(node->right);
+        delete node;
+    }
+
+    ~BinaryTree() { destroy(root); }
 };
 
 template <typename T, typename Comparator>
-bool BinaryTree<T, Comparator>::insert(const T& object) {
+void BinaryTree<T, Comparator>::insert(const T &object) {
     if (root == nullptr) {
-        root = {object, nullptr, nullptr, nullptr};
+        root = new CBinaryNode{object, nullptr, nullptr, nullptr};
     } else {
-        CBinaryNode *lr;
-        while (lr != nullptr)
+        CBinaryNode *pointer = root;
+        while (pointer != nullptr) {
+            if (cmp(object, pointer->Data)) {
+                if (pointer->left == nullptr) break;
+                pointer = pointer->left;
+            } else {
+                if (pointer->right == nullptr) break;
+                pointer = pointer->right;
+            }
+        }
+        CBinaryNode *data_object = new CBinaryNode{object, nullptr, nullptr, pointer};
+
+        if (cmp(object, pointer->Data)) {
+            pointer->left = data_object;
+        } else {
+            pointer->right = data_object;
+        }
     }
 }
 
+template <typename T, typename Comparator>
+void BinaryTree<T, Comparator>::levelBFS(CBinaryNode *node) {
+    if (node == nullptr) return;
+    std::deque<CBinaryNode *> deq;
+    deq.push_back(node);
+    while (!deq.empty()) {
+        CBinaryNode *node = deq.front();
+        deq.pop_front();
+        visit(node);
+        if (node->left != nullptr) {
+            deq.push_back(node->left);
+        }
+        if (node->right != nullptr) {
+            deq.push_back(node->right);
+        }
+    }
+}
+
+template <typename T, typename Comparator>
+void BinaryTree<T, Comparator>::in_order(CBinaryNode *node) {
+    if (node == nullptr) {
+        return;
+    }
+    in_order(node->left);
+    visit(node);
+    in_order(node->right);
+}
+
+template <typename T, typename Comparator>
+void BinaryTree<T, Comparator>::visit(CBinaryNode *node) {
+    std::cout << node->Data << " ";
+    return;
+}
+
+void run() {
+    BinaryTree<int, Comparator> btree;
+    unsigned n_elems, i;
+    unsigned elem;
+    std::cin >> n_elems;
+    for (i = 0; i < n_elems; i++) {
+        std::cin >> elem;
+        btree.insert(elem);
+    }
+    btree.levelBFS(btree.GetRoot());
+}
+
 int main() {
+    run();
     return 0;
 }
