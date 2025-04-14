@@ -29,12 +29,7 @@ class BinaryTree {
 
     CBinaryNode *GetRoot() { return root; }
 
-    void destroy(CBinaryNode *node) {
-        if (node == nullptr) return;
-        destroy(node->left);
-        destroy(node->right);
-        delete node;
-    }
+    void destroy(CBinaryNode *node);
 
     ~BinaryTree() { destroy(root); }
 };
@@ -52,13 +47,13 @@ void destroy(CBinaryNode *node) {
         if (pointer->left != nullptr) {
             CBinaryNode* left = pointer->left;
             pointer->left = nullptr;
-            stack.push(pointer->left);
+            stack.push(left);
             continue;
         }
         if (pointer->right != nullptr) {
             CBinaryNode* right = pointer->right;
             pointer->right = nullptr;
-            stack.push(pointer->right);
+            stack.push(right);
             continue;
         }
         stack.pop();
