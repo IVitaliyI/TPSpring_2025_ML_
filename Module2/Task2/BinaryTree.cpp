@@ -2,6 +2,7 @@
 #include <deque>
 #include <iostream>
 #include <vector>
+#include <stack>
 
 struct Comparator {
     bool operator()(const int left, const int right) { return left < right; }
@@ -37,6 +38,33 @@ class BinaryTree {
 
     ~BinaryTree() { destroy(root); }
 };
+
+template <typename T, typename Comparator>
+void destroy(CBinaryNode *node) {
+    if (node == nullptr) return;
+    
+    std::stack<CBinaryNode*> stack;
+    CBinaryNode* pointer;
+    stack.push(node);
+
+    while (!stack.empty()) {
+        pointer = stack.top();
+        if (pointer->left != nullptr) {
+            CBinaryNode* left = pointer->left;
+            pointer->left = nullptr;
+            stack.push(pointer->left);
+            continue;
+        }
+        if (pointer->right != nullptr) {
+            CBinaryNode* right = pointer->right;
+            pointer->right = nullptr;
+            stack.push(pointer->right);
+            continue;
+        }
+        stack.pop();
+        delete pointer;
+    }
+}
 
 template <typename T, typename Comparator>
 void BinaryTree<T, Comparator>::insert(const T &object) {
