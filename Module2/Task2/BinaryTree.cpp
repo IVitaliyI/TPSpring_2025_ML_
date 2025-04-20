@@ -1,8 +1,8 @@
 #include <cassert>
 #include <deque>
 #include <iostream>
-#include <vector>
 #include <stack>
+#include <vector>
 
 struct Comparator {
     bool operator()(const int left, const int right) { return left < right; }
@@ -23,7 +23,6 @@ class BinaryTree {
 
    public:
     void insert(const T &object);
-    void in_order(CBinaryNode *node);
     void levelBFS(CBinaryNode *node);
     void visit(CBinaryNode *node);
 
@@ -35,23 +34,23 @@ class BinaryTree {
 };
 
 template <typename T, typename Comparator>
-void destroy(CBinaryNode *node) {
+void BinaryTree<T, Comparator>::destroy(CBinaryNode *node) {
     if (node == nullptr) return;
-    
-    std::stack<CBinaryNode*> stack;
-    CBinaryNode* pointer;
+
+    std::stack<CBinaryNode *> stack;
+    CBinaryNode *pointer;
     stack.push(node);
 
     while (!stack.empty()) {
         pointer = stack.top();
         if (pointer->left != nullptr) {
-            CBinaryNode* left = pointer->left;
+            CBinaryNode *left = pointer->left;
             pointer->left = nullptr;
             stack.push(left);
             continue;
         }
         if (pointer->right != nullptr) {
-            CBinaryNode* right = pointer->right;
+            CBinaryNode *right = pointer->right;
             pointer->right = nullptr;
             stack.push(right);
             continue;
@@ -102,16 +101,6 @@ void BinaryTree<T, Comparator>::levelBFS(CBinaryNode *node) {
             deq.push_back(node->right);
         }
     }
-}
-
-template <typename T, typename Comparator>
-void BinaryTree<T, Comparator>::in_order(CBinaryNode *node) {
-    if (node == nullptr) {
-        return;
-    }
-    in_order(node->left);
-    visit(node);
-    in_order(node->right);
 }
 
 template <typename T, typename Comparator>
