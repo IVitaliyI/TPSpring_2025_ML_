@@ -1,250 +1,205 @@
-#include <cassert>
 #include <iostream>
-#include <optional>
 #include <vector>
 
-#define NIL std::nullopt
-
-struct BTreeNode {
-    unsigned n_keys;
-    std::vector<unsigned> keys;
-    std::vector<BTreeNode*> childs;
-    bool LEAF;
-};
-
-template <typename T, typename Comparator = std::less<T>>
-class BTree {
-    private:
-        unsigned t = 5;
-        BTreeNode *root;
-        BTreeNode* create_node(bool leaf = true);
-        Comparator cmp = Comparator();
-        void BTreeInsertNonFull(BTreeNode *node, unsigned key);
-        std::optional<std::pair<BTreeNode*, unsigned>> BTreeSearch(BTreeNode *node, T key);
-        void BTreeChildSplit(BTreeNode *X, unsigned i);
-    public:
-        void BTreeInsert(unsigned key);
-        BTree();
-        std::optional<std::pair<BTreeNode*, unsigned>> BTreeSearch(T key) {
-            return BTreeSearch(this->root, key);
+template <typename T>
+class BTree
+{
+public:
+    struct Node
+    {
+        Node(bool leaf)
+        : leaf(leaf)
+        {
         }
-
-    void PrintNode(BTreeNode *node, int level);
-    void Print();
-
-};
-
-template <typename T, typename Comparator>
-BTreeNode* BTree<T, Comparator>::create_node(bool leaf) {
-    BTreeNode *TreeNode = new BTreeNode();
-    TreeNode->LEAF = leaf;
-    TreeNode->n_keys = 0;
-    TreeNode->keys.resize(2 * t - 1);
-    TreeNode->childs.resize(2 * t);
-    return TreeNode;
-}
-
-template <typename T, typename Comparator>
-BTree<T, Comparator>::BTree() {
-    BTreeNode *TreeNode = create_node(true);
-    root = TreeNode;
-}
-
-template <typename T, typename Comparator>
-std::optional<std::pair<BTreeNode*, unsigned>> BTree<T, Comparator>::BTreeSearch(BTreeNode *node, T key) {
-    unsigned i = 0;
-    while (i < node->n_keys && cmp(node->keys[i], key)) i++;
-    if (i < node->n_keys && !cmp(key, node->keys[i]) && !cmp(node->keys[i], key))
-        return std::make_pair(node, i);
-    else if (node->LEAF)
-        return NIL;
-    else
-        return BTreeSearch(node->childs[i], key);
-}
-
-template <typename T, typename Comparator>
-void BTree<T, Comparator>::BTreeChildSplit(BTreeNode* X, unsigned i) {
-    unsigned j;
-    int k;
-    BTreeNode *Y = X->childs[i];
-    BTreeNode *Z = create_node(Y->LEAF);
-    Z->n_keys = t - 1;
-    for (j = 0; j < Z->n_keys; j++) {
-        Z->keys[j] = Y->keys[j + t];
-    }
-
-    if (!Y->LEAF) {
-        for (j = 0; j < t; j++) {
-            Z->childs[j] = Y->childs[j + t];
-        }
-    }
-
-    Y->n_keys = t - 1;
-
-    for (k = static_cast<int>(X->n_keys) - 1; k >= static_cast<int>(i); k--) {
-        X->childs[k + 1] = X->childs[k]; 
-    }
-
-    X->childs[i + 1] = Z;
-    for (k = static_cast<int>(X->n_keys) - 1; k >= static_cast<int>(i); k--) {
-        X->keys[k + 1] = X->keys[k]; 
-    }
-    X->keys[i] = Y->keys[t - 1];
-    X->n_keys++;
-}
-
-template <typename T, typename Comparator>
-void BTree<T, Comparator>::BTreeInsert(unsigned key) {
-    BTreeNode *root_base = this->root;
-    if (root->n_keys == 2 * t - 1) {
-        BTreeNode *new_root = create_node(false);
-        new_root->childs[0] = root_base;
-        this->root = new_root;
-        // new_root->n_keys = 1;
-        BTreeChildSplit(new_root, 0);
-        BTreeInsertNonFull(new_root, key);
-    } else {
-        BTreeInsertNonFull(root, key);
-    }
-}
-
-template <typename T, typename Comparator>
-void BTree<T, Comparator>::BTreeInsertNonFull(BTreeNode *node, unsigned key) {
-    int j = node->n_keys - 1;
-    if (node->LEAF) {
-        while (j >= 0 && cmp(key, node->keys[j])) {
-            node->keys[j + 1] = node->keys[j];
-            j--;
-        }
-        node->keys[j + 1] = key;
-        node->n_keys++;
-    } else {
-        while (j >= 0 && cmp(key, node->keys[j])) {
-            j--;
-        }
-        j++;
-        BTreeNode *child = node->childs[j];
-        if (child->n_keys == 2 * t - 1) {
-            BTreeChildSplit(node, j);
-            if (cmp(node->keys[j], key)) {
-                j++;
+        
+        ~Node()
+        {
+            for (Node* child: children)
+            {
+                delete child;
             }
         }
-        BTreeInsertNonFull(node->childs[j], key);
-    }
-}
-
-
-void test_child_split_clean() {
-    BTree<unsigned> tree;
-
-    // Вставляем 9 ключей — это переполнит корень (t = 5)
-    for (unsigned i = 1; i <= 15; ++i) {
-        tree.BTreeInsert(i);
-    }
-
-    std::cout << "Insert completed.\n";
-
-    // Поиск ключа 8 — должен найтись
-    auto result = tree.BTreeSearch(8);
-    if (result) {
-        std::cout << "Found key 8 at index " << result->second << " in node at address " << result->first << "\n";
-    } else {
-        std::cout << "Key 8 not found.\n";
-    }
-
-    // Для контроля выведем корень и его детей
-    auto root = tree.BTreeSearch(8)->first;
-    std::cout << "Root node keys: ";
-    for (unsigned i = 0; i < root->n_keys; ++i)
-        std::cout << root->keys[i] << " ";
-    std::cout << "\n";
-
-    tree.Print();
-}
-
-template <typename T, typename Comparator>
-void BTree<T, Comparator>::PrintNode(BTreeNode *node, int level) {
-    if (node == nullptr) return;
-
-    // Печатаем ключи текущего узла
-    std::cout << std::string(level * 2, ' ');  // отступ для уровня
-    std::cout << "[ ";
-    for (unsigned i = 0; i < node->n_keys; ++i) {
-        std::cout << node->keys[i] << " ";
-    }
-    std::cout << "]\n";
-
-    // Если узел не является листом, рекурсивно печатаем детей
-    if (!node->LEAF) {
-        for (unsigned i = 0; i <= node->n_keys; ++i) {
-            PrintNode(node->childs[i], level + 1);
-        }
-    }
-}
-
-template <typename T, typename Comparator>
-void BTree<T, Comparator>::Print() {
-    PrintNode(this->root, 0);  // Начинаем с корня
-}
-
-
-#if 0
-void test_child_split() {
-        BTree<unsigned> tree;
-    
-        // Создаём переполненный узел
-        BTreeNode* full_node = new BTreeNode();
-        full_node->LEAF = true;
-        full_node->n_keys = 9; // 2*t - 1 = 9, при t = 5
-    
-        full_node->keys.resize(2 * 5 - 1); // 9 элементов
-        for (unsigned i = 0; i < 9; ++i) {
-            full_node->keys[i] = i + 1;  // [1, 2, ..., 9]
-        }
-    
-        // Обёртка — корень, в который добавим full_node как ребёнка
-        BTreeNode* root = new BTreeNode();
-        root->LEAF = false;
-        root->n_keys = 0;
-        root->childs.resize(10);
-        root->keys.resize(9);
-
-        root->childs[0] = full_node;
-    
-        // Подменяем корень у дерева
-        tree.BTreeChildSplit(root, 0u);
-
-        std::cout << "Split completed.\n";
-        std::cout << "Root keys: ";
-        for (unsigned i = 0; i < root->n_keys; ++i)
-            std::cout << root->keys[i] << " ";
-        std::cout << "\n";
-    
-        std::cout << "Left child keys: ";
-        for (unsigned i = 0; i < root->childs[0]->n_keys; ++i)
-            std::cout << root->childs[0]->keys[i] << " ";
-        std::cout << "\n";
-    
-        std::cout << "Right child keys: ";
-        for (unsigned i = 0; i < root->childs[1]->n_keys; ++i)
-            std::cout << root->childs[1]->keys[i] << " ";
-        std::cout << "\n";
-
         
-        auto result = tree.BTreeSearch(8);
-        if (result) {
-            std::cout << "Found key 8 at index " << result->second << " in node with address " << result->first << "\n";
-        } else {
-            std::cout << "Key 8 not found.\n";
+        bool leaf;
+        std::vector<T> keys;
+        std::vector<Node*> children;
+    };
+    
+    BTree(size_t min_degree)
+    : t(min_degree), root(nullptr)
+    {
+    }
+    
+    ~BTree()
+    {
+        if (root)
+            delete root;
+    }
+    
+    void Insert(const T &key)
+    {
+        if (!root)
+            root = new Node(true);
+        
+        // здесь и дальше: если при спуске по дереву находим
+        // переполненный узел -- сначала разбиваем его, потом спускаемся
+        if (isNodeFull(root))
+        {
+            Node *newRoot = new Node(false);
+            newRoot->children.push_back(root);
+            root = newRoot;
+            splitChild(root, 0);
         }
         
+        // теперь корень точно не переполнен, можем вызвать insertNonFull
+        insertNonFull(root, key);
+    }
+    
+    void debugPrint()
+    {
+        debugPrintInternal(root, 0);
+    }
+    
+private:
+    
+    void debugPrintInternal(Node *node, int indent)
+    {
+        std::cout << std::string(indent, ' ');
+        std::cout << "keys: [";
+        for (auto it = node->keys.begin(); it != node->keys.end(); it++)
+        {
+            std::cout << (*it);
+            if (it + 1 != node->keys.end())
+                std::cout << ", ";
+        }
+        std::cout << "]" << std::endl;
+        
+        for (auto child: node->children)
+        {
+            debugPrintInternal(child, indent + 4);
+        }
+    }
+    
+    bool isNodeFull(Node *node)
+    {
+        return node->keys.size() == 2*t - 1;
+    }
+    
+    // разбить переполненного потомка index узла node
+    void splitChild(Node *node, size_t index)
+    {
+        Node *Y = node->children[index];
+        Node *Z = new Node(Y->leaf);
+        
+        Z->keys.assign(Y->keys.begin() + t, Y->keys.end());
+        Y->keys.resize(t - 1);
 
+        if (!Y->leaf) {
+            Z->children.assign(Y->children.begin() + t, Y->children.end());
+            Y->children.resize(t);
+        }
+        node->children.insert(node->children.begin() + index + 1, Z);
+        node->keys.insert(node->keys.begin() + index, Y->keys[t - 1]);
+    }
+    
+    // вставить ключ key в гарантированно не переполненную ноду node
+    void insertNonFull(Node *node, const T &key)
+    {
+        int pos = node->keys.size() - 1;
+        
+        // гарантированно не перепеполненный лист -- запишем новый ключ в него
+        if (node->leaf)
+        {
+            // расширили вектор ключей для вставки нового
+            node->keys.resize(node->keys.size() + 1);
+            while (pos >= 0 && key < node->keys[pos])
+            {
+                // обходим ключи справа налево, сдвигая вправо на 1
+                node->keys[pos + 1] = node->keys[pos];
+                pos--;
+            }
+            // вставляем новый ключ на освобожденное в цикле место
+            node->keys[pos + 1] = key;
+        }
+        // не лист, значит есть потомки, пишем в один из них
+        else
+        {
+            // ищем позицию потомка, в которого добавим ключ
+            while (pos >= 0 && key < node->keys[pos])
+            {
+                pos--;
+            }
+            
+            // если потомок и так полон, надо его сначала разбить
+            if (isNodeFull(node->children[pos + 1]))
+            {
+                splitChild(node, pos + 1);
+                // после разбиения потомка в текущий узел из него поднялся ключ
+                // надо сравниться и с ним
+                if (key > node->keys[pos + 1])
+                    pos++;
+            }
+            insertNonFull(node->children[pos + 1], key);
+        }
+    }
+    
+    size_t t;
+    Node *root;
+    
+    friend void test1();
+};
+
+// случаи вставки с иллюстраций в лекции
+void test1()
+{
+    BTree<char> tree(3);
+    
+    tree.root = new BTree<char>::Node(false);
+    tree.root->keys = {'G', 'M', 'P', 'X'};
+    
+    {
+        auto child = new BTree<char>::Node(true);
+        child->keys = {'A', 'C', 'D', 'E'};
+        tree.root->children.push_back(child);
+    }
+    
+    {
+        auto child = new BTree<char>::Node(true);
+        child->keys = {'J', 'K'};
+        tree.root->children.push_back(child);
+    }
+    {
+        auto child = new BTree<char>::Node(true);
+        child->keys = {'N', 'O'};
+        tree.root->children.push_back(child);
+    }
+    {
+        auto child = new BTree<char>::Node(true);
+        child->keys = {'R', 'S', 'T', 'U', 'V'};
+        tree.root->children.push_back(child);
+    }
+    {
+        auto child = new BTree<char>::Node(true);
+        child->keys = {'Y', 'Z'};
+        tree.root->children.push_back(child);
+    }
+    
+    std::cout << "Initial tree:" << std::endl;
+    tree.debugPrint();
+    std::cout << std::endl;
+    
+    std::string insertKeys = "BQLF";
+    // посимвольно добавляем в дерево ключи
+    for (auto c: insertKeys)
+    {
+        tree.Insert(c);
+        std::cout << "After inserting " << c << ":" << std::endl;
+        tree.debugPrint();
+        std::cout << std::endl;
+    }
 }
-#endif
 
-
-int main() {
-    test_child_split_clean();
-    return 0;    
+int main(int argc, const char * argv[]) {
+    test1();
+    return 0;
 }
