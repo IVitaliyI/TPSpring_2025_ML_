@@ -1,7 +1,9 @@
 #include <cassert>
 #include <iostream>
+#include <sstream>
 #include <optional>
 #include <vector>
+#include <deque>
 
 #define NIL std::nullopt
 
@@ -15,7 +17,7 @@ struct BTreeNode {
 template <typename T, typename Comparator = std::less<T>>
 class BTree {
     private:
-        unsigned t = 5;
+        unsigned t;
         BTreeNode *root;
         BTreeNode* create_node(bool leaf = true);
         Comparator cmp = Comparator();
@@ -24,13 +26,13 @@ class BTree {
         void BTreeChildSplit(BTreeNode *X, unsigned i);
     public:
         void BTreeInsert(unsigned key);
-        BTree();
+        BTree(unsigned t);
         std::optional<std::pair<BTreeNode*, unsigned>> BTreeSearch(T key) {
             return BTreeSearch(this->root, key);
         }
 
-    void PrintNode(BTreeNode *node, int level);
     void Print();
+    void visit(BTreeNode *node);
 
 };
 
@@ -40,14 +42,15 @@ BTreeNode* BTree<T, Comparator>::create_node(bool leaf) {
     TreeNode->LEAF = leaf;
     TreeNode->n_keys = 0;
     TreeNode->keys.resize(2 * t - 1);
-    TreeNode->childs.resize(2 * t);
+    TreeNode->childs.resize(2 * t, nullptr);
     return TreeNode;
 }
 
 template <typename T, typename Comparator>
-BTree<T, Comparator>::BTree() {
+BTree<T, Comparator>::BTree(unsigned t) {
     BTreeNode *TreeNode = create_node(true);
     root = TreeNode;
+    this->t = t;
 }
 
 template <typename T, typename Comparator>
@@ -134,117 +137,73 @@ void BTree<T, Comparator>::BTreeInsertNonFull(BTreeNode *node, unsigned key) {
     }
 }
 
-
-void test_child_split_clean() {
-    BTree<unsigned> tree;
-
-    // Вставляем 9 ключей — это переполнит корень (t = 5)
-    for (unsigned i = 1; i <= 15; ++i) {
-        tree.BTreeInsert(i);
-    }
-
-    std::cout << "Insert completed.\n";
-
-    // Поиск ключа 8 — должен найтись
-    auto result = tree.BTreeSearch(8);
-    if (result) {
-        std::cout << "Found key 8 at index " << result->second << " in node at address " << result->first << "\n";
-    } else {
-        std::cout << "Key 8 not found.\n";
-    }
-
-    // Для контроля выведем корень и его детей
-    auto root = tree.BTreeSearch(8)->first;
-    std::cout << "Root node keys: ";
-    for (unsigned i = 0; i < root->n_keys; ++i)
-        std::cout << root->keys[i] << " ";
-    std::cout << "\n";
-
-    tree.Print();
-}
-
-template <typename T, typename Comparator>
-void BTree<T, Comparator>::PrintNode(BTreeNode *node, int level) {
-    if (node == nullptr) return;
-
-    // Печатаем ключи текущего узла
-    std::cout << std::string(level * 2, ' ');  // отступ для уровня
-    std::cout << "[ ";
-    for (unsigned i = 0; i < node->n_keys; ++i) {
-        std::cout << node->keys[i] << " ";
-    }
-    std::cout << "]\n";
-
-    // Если узел не является листом, рекурсивно печатаем детей
-    if (!node->LEAF) {
-        for (unsigned i = 0; i <= node->n_keys; ++i) {
-            PrintNode(node->childs[i], level + 1);
-        }
-    }
-}
-
 template <typename T, typename Comparator>
 void BTree<T, Comparator>::Print() {
-    PrintNode(this->root, 0);  // Начинаем с корня
+    if (root == nullptr) return;
+
+    std::deque<std::pair<BTreeNode*, unsigned>> deq;
+    deq.emplace_back(root, 0);
+    unsigned current_level = 0;
+
+    while (!deq.empty()) {
+        auto [node, level] = deq.front();
+        deq.pop_front();
+
+        if (level != current_level) {
+            std::cout << std::endl;
+            current_level = level;
+        }
+
+        for (unsigned i = 0; i < node->n_keys; ++i) {
+            std::cout << node->keys[i] << " ";
+        }
+
+        if (!node->LEAF) {
+            for (unsigned i = 
+                0; i <= node->n_keys; ++i) {
+                if (node->childs[i])
+                    deq.emplace_back(node->childs[i], level + 1);
+            }
+        }
+    }
+
+    std::cout << std::endl;
 }
 
 
-#if 0
-void test_child_split() {
-        BTree<unsigned> tree;
-    
-        // Создаём переполненный узел
-        BTreeNode* full_node = new BTreeNode();
-        full_node->LEAF = true;
-        full_node->n_keys = 9; // 2*t - 1 = 9, при t = 5
-    
-        full_node->keys.resize(2 * 5 - 1); // 9 элементов
-        for (unsigned i = 0; i < 9; ++i) {
-            full_node->keys[i] = i + 1;  // [1, 2, ..., 9]
-        }
-    
-        // Обёртка — корень, в который добавим full_node как ребёнка
-        BTreeNode* root = new BTreeNode();
-        root->LEAF = false;
-        root->n_keys = 0;
-        root->childs.resize(10);
-        root->keys.resize(9);
-
-        root->childs[0] = full_node;
-    
-        // Подменяем корень у дерева
-        tree.BTreeChildSplit(root, 0u);
-
-        std::cout << "Split completed.\n";
-        std::cout << "Root keys: ";
-        for (unsigned i = 0; i < root->n_keys; ++i)
-            std::cout << root->keys[i] << " ";
-        std::cout << "\n";
-    
-        std::cout << "Left child keys: ";
-        for (unsigned i = 0; i < root->childs[0]->n_keys; ++i)
-            std::cout << root->childs[0]->keys[i] << " ";
-        std::cout << "\n";
-    
-        std::cout << "Right child keys: ";
-        for (unsigned i = 0; i < root->childs[1]->n_keys; ++i)
-            std::cout << root->childs[1]->keys[i] << " ";
-        std::cout << "\n";
-
-        
-        auto result = tree.BTreeSearch(8);
-        if (result) {
-            std::cout << "Found key 8 at index " << result->second << " in node with address " << result->first << "\n";
-        } else {
-            std::cout << "Key 8 not found.\n";
-        }
-        
-
+template <typename T, typename Comparator>
+void BTree<T, Comparator>::visit(BTreeNode *node) {
+    unsigned i;
+    for (i = 0; i < node->n_keys; i++) {
+        std::cout << node->keys[i] << " ";
+    }
 }
-#endif
 
+void run(std::istream &input, std::ostream &output) {
+    unsigned count, i;
+    int element;
+    input >> count;
+    // if (input.fail()) std::cerr << "Problem with input" << std::endl;
+    BTree<int> Btree(count);
+    std::vector<int> elements;
+    while (input >> element) {
+        Btree.BTreeInsert(element);
+    }
+    Btree.Print();
+}
+
+void test_case() {
+    {
+        std::stringstream input, output;
+        input << 2 << std::endl;
+        input << "0 1 2 3 4 5 6 7 8 9";
+        run(input, std::cout);
+    }
+}
 
 int main() {
-    test_child_split_clean();
+    // test_child_split_clean();
+    run(std::cin, std::cout);
+    // test_case();
     return 0;    
 }
