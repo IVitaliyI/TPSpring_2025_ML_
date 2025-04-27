@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/BitWriterTests.dir/test/test_bitwriter.cpp.o CMakeFiles/BitWriterTests.dir/test/catch_amalgamated.cpp.o CMakeFiles/BitWriterTests.dir/src/Haffman.cpp.o -o BitWriterTests 

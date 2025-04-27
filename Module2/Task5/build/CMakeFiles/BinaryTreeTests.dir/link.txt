@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.o CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.o CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.o -o BinaryTreeTests 

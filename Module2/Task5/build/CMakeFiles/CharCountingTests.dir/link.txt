@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/CharCountingTests.dir/test/test_charCounting.cpp.o CMakeFiles/CharCountingTests.dir/test/catch_amalgamated.cpp.o CMakeFiles/CharCountingTests.dir/src/Haffman.cpp.o -o CharCountingTests 
