@@ -1,4 +1,5 @@
-BitWriterTests 11 0.000189049
-CharCountingTests 8 0.000257035
-BinaryTreeTests 1 0.00194028
+BitWriterTests 31 8.61503e-05
+CharCountingTests 27 7.30249e-05
+BinaryTreeTests 5 0.00140959
+HaffmanTree 7 0.000336244
 ---

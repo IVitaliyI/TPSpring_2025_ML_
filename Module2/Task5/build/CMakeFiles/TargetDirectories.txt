@@ -1,6 +1,5 @@
 /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles/BitWriterTests.dir
-/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles/CharCountingTests.dir
-/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles/BinaryTreeTests.dir
+/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles/HaffmanTree.dir
 /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles/Experimental.dir
 /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles/Nightly.dir
 /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles/Continuous.dir

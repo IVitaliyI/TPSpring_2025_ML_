@@ -1,13 +1,13 @@
-Start testing: Apr 27 19:00 MSK
+Start testing: May 03 15:34 MSK
 ----------------------------------------------------------
-1/3 Testing: BitWriterTests
-1/3 Test: BitWriterTests
+1/2 Testing: BitWriterTests
+1/2 Test: BitWriterTests
 Command: "/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/BitWriterTests"
 Directory: /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build
-"BitWriterTests" start time: Apr 27 19:00 MSK
+"BitWriterTests" start time: May 03 15:34 MSK
 Output:
 ----------------------------------------------------------
-Randomness seeded to: 1569378585
+Randomness seeded to: 646518855
 ===============================================================================
 All tests passed (11 assertions in 3 test cases)
 
@@ -15,46 +15,48 @@ All tests passed (11 assertions in 3 test cases)
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"BitWriterTests" end time: Apr 27 19:00 MSK
+"BitWriterTests" end time: May 03 15:34 MSK
 "BitWriterTests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-2/3 Testing: CharCountingTests
-2/3 Test: CharCountingTests
-Command: "/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CharCountingTests"
+2/2 Testing: HaffmanTree
+2/2 Test: HaffmanTree
+Command: "/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/HaffmanTree"
 Directory: /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build
-"CharCountingTests" start time: Apr 27 19:00 MSK
+"HaffmanTree" start time: May 03 15:34 MSK
 Output:
 ----------------------------------------------------------
-Randomness seeded to: 562078778
+Randomness seeded to: 966961153
+* (freq: 11)
+  L─'a' (freq: 5)
+  R─* (freq: 6)
+  R─  L─* (freq: 2)
+  R─  R─* (freq: 4)
+  R─  L─  L─'d' (freq: 1)
+  R─  L─  R─'c' (freq: 1)
+  R─  R─  L─'r' (freq: 2)
+  R─  R─  R─'b' (freq: 2)
+Sym = b Code = 111
+Sym = r Code = 110
+Sym = c Code = 101
+Sym = d Code = 100
+Sym = a Code = 0
+* (freq: 37)
+  L─'d' (freq: 15)
+  R─* (freq: 22)
+  R─  L─'c' (freq: 10)
+  R─  R─* (freq: 12)
+  R─  R─  L─'a' (freq: 5)
+  R─  R─  R─'b' (freq: 7)
 ===============================================================================
-All tests passed (7 assertions in 1 test case)
+All tests passed (6 assertions in 4 test cases)
 
 <end of output>
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"CharCountingTests" end time: Apr 27 19:00 MSK
-"CharCountingTests" time elapsed: 00:00:00
+"HaffmanTree" end time: May 03 15:34 MSK
+"HaffmanTree" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-3/3 Testing: BinaryTreeTests
-3/3 Test: BinaryTreeTests
-Command: "/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/BinaryTreeTests"
-Directory: /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build
-"BinaryTreeTests" start time: Apr 27 19:00 MSK
-Output:
-----------------------------------------------------------
-Randomness seeded to: 1856078303
-===============================================================================
-All tests passed (19 assertions in 7 test cases)
-
-<end of output>
-Test time =   0.00 sec
-----------------------------------------------------------
-Test Passed.
-"BinaryTreeTests" end time: Apr 27 19:00 MSK
-"BinaryTreeTests" time elapsed: 00:00:00
-----------------------------------------------------------
-
-End testing: Apr 27 19:00 MSK
+End testing: May 03 15:34 MSK

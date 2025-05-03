@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/include"
+CXX_INCLUDES = -I/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/include
 
 CXX_FLAGS = 
 

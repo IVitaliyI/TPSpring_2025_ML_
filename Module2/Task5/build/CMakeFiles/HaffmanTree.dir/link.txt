@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/HaffmanTree.dir/test/test_HaffmanTree.cpp.o CMakeFiles/HaffmanTree.dir/test/catch_amalgamated.cpp.o CMakeFiles/HaffmanTree.dir/src/Haffman.cpp.o -o HaffmanTree 

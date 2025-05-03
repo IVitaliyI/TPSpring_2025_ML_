@@ -140,30 +140,17 @@ BitWriterTests/fast:
 .PHONY : BitWriterTests/fast
 
 #=============================================================================
-# Target rules for targets named CharCountingTests
+# Target rules for targets named HaffmanTree
 
 # Build rule for target.
-CharCountingTests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CharCountingTests
-.PHONY : CharCountingTests
+HaffmanTree: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 HaffmanTree
+.PHONY : HaffmanTree
 
 # fast build rule for target.
-CharCountingTests/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CharCountingTests.dir/build.make CMakeFiles/CharCountingTests.dir/build
-.PHONY : CharCountingTests/fast
-
-#=============================================================================
-# Target rules for targets named BinaryTreeTests
-
-# Build rule for target.
-BinaryTreeTests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 BinaryTreeTests
-.PHONY : BinaryTreeTests
-
-# fast build rule for target.
-BinaryTreeTests/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTreeTests.dir/build.make CMakeFiles/BinaryTreeTests.dir/build
-.PHONY : BinaryTreeTests/fast
+HaffmanTree/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HaffmanTree.dir/build.make CMakeFiles/HaffmanTree.dir/build
+.PHONY : HaffmanTree/fast
 
 #=============================================================================
 # Target rules for targets named Experimental
@@ -548,8 +535,7 @@ src/Haffman.o: src/Haffman.cpp.o
 # target to build an object file
 src/Haffman.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BitWriterTests.dir/build.make CMakeFiles/BitWriterTests.dir/src/Haffman.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CharCountingTests.dir/build.make CMakeFiles/CharCountingTests.dir/src/Haffman.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTreeTests.dir/build.make CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HaffmanTree.dir/build.make CMakeFiles/HaffmanTree.dir/src/Haffman.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/Haffman.cpp.o
 .PHONY : src/Haffman.cpp.o
 
@@ -559,8 +545,7 @@ src/Haffman.i: src/Haffman.cpp.i
 # target to preprocess a source file
 src/Haffman.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BitWriterTests.dir/build.make CMakeFiles/BitWriterTests.dir/src/Haffman.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CharCountingTests.dir/build.make CMakeFiles/CharCountingTests.dir/src/Haffman.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTreeTests.dir/build.make CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HaffmanTree.dir/build.make CMakeFiles/HaffmanTree.dir/src/Haffman.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/Haffman.cpp.i
 .PHONY : src/Haffman.cpp.i
 
@@ -570,8 +555,7 @@ src/Haffman.s: src/Haffman.cpp.s
 # target to generate assembly for a file
 src/Haffman.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BitWriterTests.dir/build.make CMakeFiles/BitWriterTests.dir/src/Haffman.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CharCountingTests.dir/build.make CMakeFiles/CharCountingTests.dir/src/Haffman.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTreeTests.dir/build.make CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HaffmanTree.dir/build.make CMakeFiles/HaffmanTree.dir/src/Haffman.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/src/Haffman.cpp.s
 .PHONY : src/Haffman.cpp.s
 
@@ -605,8 +589,7 @@ test/catch_amalgamated.o: test/catch_amalgamated.cpp.o
 # target to build an object file
 test/catch_amalgamated.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BitWriterTests.dir/build.make CMakeFiles/BitWriterTests.dir/test/catch_amalgamated.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CharCountingTests.dir/build.make CMakeFiles/CharCountingTests.dir/test/catch_amalgamated.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTreeTests.dir/build.make CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HaffmanTree.dir/build.make CMakeFiles/HaffmanTree.dir/test/catch_amalgamated.cpp.o
 .PHONY : test/catch_amalgamated.cpp.o
 
 test/catch_amalgamated.i: test/catch_amalgamated.cpp.i
@@ -615,8 +598,7 @@ test/catch_amalgamated.i: test/catch_amalgamated.cpp.i
 # target to preprocess a source file
 test/catch_amalgamated.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BitWriterTests.dir/build.make CMakeFiles/BitWriterTests.dir/test/catch_amalgamated.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CharCountingTests.dir/build.make CMakeFiles/CharCountingTests.dir/test/catch_amalgamated.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTreeTests.dir/build.make CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HaffmanTree.dir/build.make CMakeFiles/HaffmanTree.dir/test/catch_amalgamated.cpp.i
 .PHONY : test/catch_amalgamated.cpp.i
 
 test/catch_amalgamated.s: test/catch_amalgamated.cpp.s
@@ -625,33 +607,32 @@ test/catch_amalgamated.s: test/catch_amalgamated.cpp.s
 # target to generate assembly for a file
 test/catch_amalgamated.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BitWriterTests.dir/build.make CMakeFiles/BitWriterTests.dir/test/catch_amalgamated.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CharCountingTests.dir/build.make CMakeFiles/CharCountingTests.dir/test/catch_amalgamated.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTreeTests.dir/build.make CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HaffmanTree.dir/build.make CMakeFiles/HaffmanTree.dir/test/catch_amalgamated.cpp.s
 .PHONY : test/catch_amalgamated.cpp.s
 
-test/test_binarytree.o: test/test_binarytree.cpp.o
-.PHONY : test/test_binarytree.o
+test/test_HaffmanTree.o: test/test_HaffmanTree.cpp.o
+.PHONY : test/test_HaffmanTree.o
 
 # target to build an object file
-test/test_binarytree.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTreeTests.dir/build.make CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.o
-.PHONY : test/test_binarytree.cpp.o
+test/test_HaffmanTree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HaffmanTree.dir/build.make CMakeFiles/HaffmanTree.dir/test/test_HaffmanTree.cpp.o
+.PHONY : test/test_HaffmanTree.cpp.o
 
-test/test_binarytree.i: test/test_binarytree.cpp.i
-.PHONY : test/test_binarytree.i
+test/test_HaffmanTree.i: test/test_HaffmanTree.cpp.i
+.PHONY : test/test_HaffmanTree.i
 
 # target to preprocess a source file
-test/test_binarytree.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTreeTests.dir/build.make CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.i
-.PHONY : test/test_binarytree.cpp.i
+test/test_HaffmanTree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HaffmanTree.dir/build.make CMakeFiles/HaffmanTree.dir/test/test_HaffmanTree.cpp.i
+.PHONY : test/test_HaffmanTree.cpp.i
 
-test/test_binarytree.s: test/test_binarytree.cpp.s
-.PHONY : test/test_binarytree.s
+test/test_HaffmanTree.s: test/test_HaffmanTree.cpp.s
+.PHONY : test/test_HaffmanTree.s
 
 # target to generate assembly for a file
-test/test_binarytree.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTreeTests.dir/build.make CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.s
-.PHONY : test/test_binarytree.cpp.s
+test/test_HaffmanTree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HaffmanTree.dir/build.make CMakeFiles/HaffmanTree.dir/test/test_HaffmanTree.cpp.s
+.PHONY : test/test_HaffmanTree.cpp.s
 
 test/test_bitwriter.o: test/test_bitwriter.cpp.o
 .PHONY : test/test_bitwriter.o
@@ -676,30 +657,6 @@ test/test_bitwriter.s: test/test_bitwriter.cpp.s
 test/test_bitwriter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BitWriterTests.dir/build.make CMakeFiles/BitWriterTests.dir/test/test_bitwriter.cpp.s
 .PHONY : test/test_bitwriter.cpp.s
-
-test/test_charCounting.o: test/test_charCounting.cpp.o
-.PHONY : test/test_charCounting.o
-
-# target to build an object file
-test/test_charCounting.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CharCountingTests.dir/build.make CMakeFiles/CharCountingTests.dir/test/test_charCounting.cpp.o
-.PHONY : test/test_charCounting.cpp.o
-
-test/test_charCounting.i: test/test_charCounting.cpp.i
-.PHONY : test/test_charCounting.i
-
-# target to preprocess a source file
-test/test_charCounting.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CharCountingTests.dir/build.make CMakeFiles/CharCountingTests.dir/test/test_charCounting.cpp.i
-.PHONY : test/test_charCounting.cpp.i
-
-test/test_charCounting.s: test/test_charCounting.cpp.s
-.PHONY : test/test_charCounting.s
-
-# target to generate assembly for a file
-test/test_charCounting.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CharCountingTests.dir/build.make CMakeFiles/CharCountingTests.dir/test/test_charCounting.cpp.s
-.PHONY : test/test_charCounting.cpp.s
 
 # Help Target
 help:
@@ -738,9 +695,8 @@ help:
 	@echo "... NightlySubmit"
 	@echo "... NightlyTest"
 	@echo "... NightlyUpdate"
-	@echo "... BinaryTreeTests"
 	@echo "... BitWriterTests"
-	@echo "... CharCountingTests"
+	@echo "... HaffmanTree"
 	@echo "... a.out"
 	@echo "... src/Haffman.o"
 	@echo "... src/Haffman.i"
@@ -751,15 +707,12 @@ help:
 	@echo "... test/catch_amalgamated.o"
 	@echo "... test/catch_amalgamated.i"
 	@echo "... test/catch_amalgamated.s"
-	@echo "... test/test_binarytree.o"
-	@echo "... test/test_binarytree.i"
-	@echo "... test/test_binarytree.s"
+	@echo "... test/test_HaffmanTree.o"
+	@echo "... test/test_HaffmanTree.i"
+	@echo "... test/test_HaffmanTree.s"
 	@echo "... test/test_bitwriter.o"
 	@echo "... test/test_bitwriter.i"
 	@echo "... test/test_bitwriter.s"
-	@echo "... test/test_charCounting.o"
-	@echo "... test/test_charCounting.i"
-	@echo "... test/test_charCounting.s"
 .PHONY : help
 
 

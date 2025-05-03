@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5
+CMAKE_SOURCE_DIR = "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build
+CMAKE_BINARY_DIR = "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/BinaryTreeTests.dir/depend.make
@@ -70,46 +70,46 @@ include CMakeFiles/BinaryTreeTests.dir/progress.make
 include CMakeFiles/BinaryTreeTests.dir/flags.make
 
 CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.o: CMakeFiles/BinaryTreeTests.dir/flags.make
-CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.o: /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/test_binarytree.cpp
+CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.o: /home/vitaliy/Рабочий\ стол/Ссылка\ на\ Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/test_binarytree.cpp
 CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.o: CMakeFiles/BinaryTreeTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.o -MF CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.o.d -o CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.o -c /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/test_binarytree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.o -MF CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.o.d -o CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.o -c "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/test_binarytree.cpp"
 
 CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/test_binarytree.cpp > CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/test_binarytree.cpp" > CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.i
 
 CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/test_binarytree.cpp -o CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/test_binarytree.cpp" -o CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.s
 
 CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.o: CMakeFiles/BinaryTreeTests.dir/flags.make
-CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.o: /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/catch_amalgamated.cpp
+CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.o: /home/vitaliy/Рабочий\ стол/Ссылка\ на\ Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/catch_amalgamated.cpp
 CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.o: CMakeFiles/BinaryTreeTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.o -MF CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.o.d -o CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.o -c /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/catch_amalgamated.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.o -MF CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.o.d -o CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.o -c "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/catch_amalgamated.cpp"
 
 CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/catch_amalgamated.cpp > CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/catch_amalgamated.cpp" > CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.i
 
 CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/catch_amalgamated.cpp -o CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/catch_amalgamated.cpp" -o CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.s
 
 CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.o: CMakeFiles/BinaryTreeTests.dir/flags.make
-CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.o: /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/src/Haffman.cpp
+CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.o: /home/vitaliy/Рабочий\ стол/Ссылка\ на\ Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/src/Haffman.cpp
 CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.o: CMakeFiles/BinaryTreeTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.o -MF CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.o.d -o CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.o -c /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/src/Haffman.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.o -MF CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.o.d -o CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.o -c "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/src/Haffman.cpp"
 
 CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/src/Haffman.cpp > CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/src/Haffman.cpp" > CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.i
 
 CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/src/Haffman.cpp -o CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/src/Haffman.cpp" -o CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.s
 
 # Object files for target BinaryTreeTests
 BinaryTreeTests_OBJECTS = \
@@ -125,7 +125,7 @@ BinaryTreeTests: CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.o
 BinaryTreeTests: CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.o
 BinaryTreeTests: CMakeFiles/BinaryTreeTests.dir/build.make
 BinaryTreeTests: CMakeFiles/BinaryTreeTests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable BinaryTreeTests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable BinaryTreeTests"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/BinaryTreeTests.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -137,6 +137,6 @@ CMakeFiles/BinaryTreeTests.dir/clean:
 .PHONY : CMakeFiles/BinaryTreeTests.dir/clean
 
 CMakeFiles/BinaryTreeTests.dir/depend:
-	cd /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5 /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5 /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles/BinaryTreeTests.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5" "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5" "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build" "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build" "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles/BinaryTreeTests.dir/DependInfo.cmake" "--color=$(COLOR)"
 .PHONY : CMakeFiles/BinaryTreeTests.dir/depend
 

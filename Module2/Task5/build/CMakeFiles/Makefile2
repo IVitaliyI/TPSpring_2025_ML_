@@ -64,8 +64,7 @@ CMAKE_BINARY_DIR = /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_
 
 # The main recursive "all" target.
 all: CMakeFiles/BitWriterTests.dir/all
-all: CMakeFiles/CharCountingTests.dir/all
-all: CMakeFiles/BinaryTreeTests.dir/all
+all: CMakeFiles/HaffmanTree.dir/all
 all: CMakeFiles/a.out.dir/all
 .PHONY : all
 
@@ -75,8 +74,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/BitWriterTests.dir/clean
-clean: CMakeFiles/CharCountingTests.dir/clean
-clean: CMakeFiles/BinaryTreeTests.dir/clean
+clean: CMakeFiles/HaffmanTree.dir/clean
 clean: CMakeFiles/Experimental.dir/clean
 clean: CMakeFiles/Nightly.dir/clean
 clean: CMakeFiles/Continuous.dir/clean
@@ -115,7 +113,7 @@ clean: CMakeFiles/a.out.dir/clean
 CMakeFiles/BitWriterTests.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BitWriterTests.dir/build.make CMakeFiles/BitWriterTests.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BitWriterTests.dir/build.make CMakeFiles/BitWriterTests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles --progress-num=5,6,7,8 "Built target BitWriterTests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles --progress-num=1,2,3,4 "Built target BitWriterTests"
 .PHONY : CMakeFiles/BitWriterTests.dir/all
 
 # Build rule for subdir invocation for target.
@@ -135,56 +133,30 @@ CMakeFiles/BitWriterTests.dir/clean:
 .PHONY : CMakeFiles/BitWriterTests.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/CharCountingTests.dir
+# Target rules for target CMakeFiles/HaffmanTree.dir
 
 # All Build rule for target.
-CMakeFiles/CharCountingTests.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CharCountingTests.dir/build.make CMakeFiles/CharCountingTests.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CharCountingTests.dir/build.make CMakeFiles/CharCountingTests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles --progress-num=9,10,11,12 "Built target CharCountingTests"
-.PHONY : CMakeFiles/CharCountingTests.dir/all
+CMakeFiles/HaffmanTree.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HaffmanTree.dir/build.make CMakeFiles/HaffmanTree.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HaffmanTree.dir/build.make CMakeFiles/HaffmanTree.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles --progress-num=5,6,7,8 "Built target HaffmanTree"
+.PHONY : CMakeFiles/HaffmanTree.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/CharCountingTests.dir/rule: cmake_check_build_system
+CMakeFiles/HaffmanTree.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/CharCountingTests.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/HaffmanTree.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles 0
-.PHONY : CMakeFiles/CharCountingTests.dir/rule
+.PHONY : CMakeFiles/HaffmanTree.dir/rule
 
 # Convenience name for target.
-CharCountingTests: CMakeFiles/CharCountingTests.dir/rule
-.PHONY : CharCountingTests
+HaffmanTree: CMakeFiles/HaffmanTree.dir/rule
+.PHONY : HaffmanTree
 
 # clean rule for target.
-CMakeFiles/CharCountingTests.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CharCountingTests.dir/build.make CMakeFiles/CharCountingTests.dir/clean
-.PHONY : CMakeFiles/CharCountingTests.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/BinaryTreeTests.dir
-
-# All Build rule for target.
-CMakeFiles/BinaryTreeTests.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTreeTests.dir/build.make CMakeFiles/BinaryTreeTests.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTreeTests.dir/build.make CMakeFiles/BinaryTreeTests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles --progress-num=1,2,3,4 "Built target BinaryTreeTests"
-.PHONY : CMakeFiles/BinaryTreeTests.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/BinaryTreeTests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/BinaryTreeTests.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles 0
-.PHONY : CMakeFiles/BinaryTreeTests.dir/rule
-
-# Convenience name for target.
-BinaryTreeTests: CMakeFiles/BinaryTreeTests.dir/rule
-.PHONY : BinaryTreeTests
-
-# clean rule for target.
-CMakeFiles/BinaryTreeTests.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTreeTests.dir/build.make CMakeFiles/BinaryTreeTests.dir/clean
-.PHONY : CMakeFiles/BinaryTreeTests.dir/clean
+CMakeFiles/HaffmanTree.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/HaffmanTree.dir/build.make CMakeFiles/HaffmanTree.dir/clean
+.PHONY : CMakeFiles/HaffmanTree.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/Experimental.dir
@@ -921,7 +893,7 @@ CMakeFiles/ContinuousSubmit.dir/clean:
 CMakeFiles/a.out.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles --progress-num=13,14,15 "Built target a.out"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/build/CMakeFiles --progress-num=9,10,11 "Built target a.out"
 .PHONY : CMakeFiles/a.out.dir/all
 
 # Build rule for subdir invocation for target.

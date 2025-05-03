@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/src/Haffman.cpp" "CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.o" "gcc" "CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.o.d"
-  "/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/catch_amalgamated.cpp" "CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.o" "gcc" "CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.o.d"
-  "/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/test_binarytree.cpp" "CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.o" "gcc" "CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.o.d"
+  "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/src/Haffman.cpp" "CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.o" "gcc" "CMakeFiles/BinaryTreeTests.dir/src/Haffman.cpp.o.d"
+  "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/catch_amalgamated.cpp" "CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.o" "gcc" "CMakeFiles/BinaryTreeTests.dir/test/catch_amalgamated.cpp.o.d"
+  "/home/vitaliy/Рабочий стол/Ссылка на Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module2/Task5/test/test_binarytree.cpp" "CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.o" "gcc" "CMakeFiles/BinaryTreeTests.dir/test/test_binarytree.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

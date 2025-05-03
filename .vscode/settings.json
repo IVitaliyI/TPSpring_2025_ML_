@@ -72,6 +72,12 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "text_encoding": "cpp",
-        "cassert": "cpp"
+        "cassert": "cpp",
+        "regex": "cpp",
+        "future": "cpp",
+        "strstream": "cpp",
+        "cfenv": "cpp",
+        "source_location": "cpp",
+        "stdfloat": "cpp"
     }
 }

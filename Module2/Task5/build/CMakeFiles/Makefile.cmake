@@ -50,8 +50,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/BitWriterTests.dir/DependInfo.cmake"
-  "CMakeFiles/CharCountingTests.dir/DependInfo.cmake"
-  "CMakeFiles/BinaryTreeTests.dir/DependInfo.cmake"
+  "CMakeFiles/HaffmanTree.dir/DependInfo.cmake"
   "CMakeFiles/Experimental.dir/DependInfo.cmake"
   "CMakeFiles/Nightly.dir/DependInfo.cmake"
   "CMakeFiles/Continuous.dir/DependInfo.cmake"
