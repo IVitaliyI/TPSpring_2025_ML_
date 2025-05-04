@@ -461,6 +461,7 @@ void HaffmanEncAndDec::Decode(IInputStream& compressed, IOutputStream& original)
 
     byte b;
     HaffmanNode* node = tree.getRoot();
+
     bool bit;
     while (reader.ReadBit(bit)) {
         node = bit ? node->right : node->left;
