@@ -1,0 +1,3 @@
+/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module3/Task1/build/CMakeFiles/a.out.dir
+/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module3/Task1/build/CMakeFiles/edit_cache.dir
+/home/Applications/Data/programming/2025/VK_ML/TPSpring_2025_ML_/Module3/Task1/build/CMakeFiles/rebuild_cache.dir
